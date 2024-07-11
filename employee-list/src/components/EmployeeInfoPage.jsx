@@ -21,12 +21,12 @@ const EmployeeInfo = () => {
           BusinessUnitId: 185,
           viewOrder: 'desc',
           PageNo: page,
-          PageSize: pageSize,
+          PageSize: 1000,
         },
       });
       console.log(response.data);
-      setEmployees(response.data.data);  // Assuming the data is in response.data.data
-      setTotalPages(Math.ceil(response.data.totalCount / pageSize));  // Assuming totalCount is the total number of records
+      setEmployees(response.data.data);  
+      setTotalPages(Math.ceil(response.data.totalCount / pageSize));  
     } catch (error) {
       console.error('Error fetching data', error);
     }
@@ -55,6 +55,13 @@ const EmployeeInfo = () => {
     setCurrentPage(newPage);
   };
 
+  const filteredEmployees = employees.filter(employee => 
+    (selectedDepartment === '' || employee.department === selectedDepartment)
+  );
+
+  const paginatedEmployees = filteredEmployees.slice(currentPage * pageSize, (currentPage + 1) * pageSize);
+
+
   return (
     <div>
       <h1>Official Information</h1>
@@ -67,11 +74,10 @@ const EmployeeInfo = () => {
         />
         <select onChange={handleDepartmentChange} value={selectedDepartment}>
           <option value="">All Departments</option>
-          {/* Add department options here */}
+          <option value="BD & Projects">BD & Projects</option>
           <option value="Operation">Operation</option>
-          <option value="Finance">Finance & Accounts</option>
-          <option value="HR">HR & Admin</option>
-          {/* Add more departments as needed */}
+          <option value="Finance & Accounts">Finance & Accounts</option>
+          <option value="HR & Admin">HR & Admin</option>    
         </select>
         <button onClick={() => fetchData(0)}>View</button>
       </div>
@@ -87,12 +93,10 @@ const EmployeeInfo = () => {
             <th>Designation</th>
             <th>Line Manager</th>
             <th>Supervisor</th>
-            <th>Salary</th>
-
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee, index) => (
+          {paginatedEmployees.map((employee, index) => (
             <tr key={index}>
               <td>{index + 1}</td>
               <td>{employee.employeeId}</td>
@@ -103,8 +107,6 @@ const EmployeeInfo = () => {
               <td>{employee.designationName}</td>
               <td>{employee.lineManagerName}</td>
               <td>{employee.supervisorName}</td>
-              {/* <td>{employee.}</td> */}
-
             </tr>
           ))}
         </tbody>
