@@ -39,8 +39,8 @@ const CreateEmployeeForm = ({ onClose }) => {
       accountId: 5,
       businessunitId: 185,
       sbuid: 0,
-      departmentId: 342, // You might want to map this from functionalDepartment
-      designationId: 2152, // You might want to map this from designation
+      departmentId: 342, 
+      designationId: 2152, 
       joiningDate: formData.joiningDate,
       presentAddress: "",
       permanentAddress: "",
