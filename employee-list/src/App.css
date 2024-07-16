@@ -1,0 +1,86 @@
+.form-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #d3f1ff;
+    width: 100%;
+    margin: 0 auto;
+}
+  
+  .form-container h2 {
+    text-align: center;
+  }
+  
+  .form-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .form-container form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-container form input,
+  .form-container form select {
+    width: 40%;
+    padding: 8px;
+    margin: 8px;
+    box-sizing: border-box;
+  }
+  
+  .form-container form button {
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  table td {
+    font-size: 14px;
+  
+  }
+  table th {
+    background-color: #00108b;
+    color: white;
+  }
+
+input {
+    padding: 10px 10px;
+    margin-right: 10px;
+}
+
+select {
+    padding: 10px 10px;
+}
+
+label {
+    width: 40%;
+}
